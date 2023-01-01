@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
 html {
   box-sizing: border-box;
 }
@@ -7,4 +9,10 @@ body {
   min-height: 100vh;
   background-color: #ffffff;
   background-image: url("data:image/svg+xml,%3Csvg width='44' height='12' viewBox='0 0 44 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 12v-2L0 0v10l4 2h16zm18 0l4-2V0L22 10v2h16zM20 0v8L4 0h16zm18 0L22 8V0h16z' fill='%23af3535' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+  color: black;
+  font-family: 'Ibarra Real Nova', serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
