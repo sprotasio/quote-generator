@@ -6,11 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quote Generator</title>
     <link rel="icon" type="image/png" href="sp-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/851f7cf7d9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="quote-container" id="quote-container">
+        <!-- quote text -->
+        <div class="quote-text">
+            <i class="fa-solid fa-quote-left"></i>
+            <span id="quote">The chances of each of us coming into existence are infinitesimally small, and even
+                though we shall all die some day, we
+                should count ourselves fantastically lucky to get our decades in the sun.</span>
+            <div id="author">Richard Dawkins</div>
+            <div class="button-container">
+                <button class="twiter-btn" id="twiter" title="Tweet This!"><i class="fa-brands fa-twitter"></i></button>
+                <button class="refresh-quote" id="refresh-quote"><i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+        </div>
+    </div>
     <!-- Script -->
     <script src="script.js"></script>
 </body>
