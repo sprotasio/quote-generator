@@ -1,3 +1,9 @@
+const quoteContainer = document.getElementById('quote-container');
+const quoteText = document.getElementById('quote');
+const authorName = document.getElementById('author');
+const twitterBtn = document.getElementById('twitter');
+const newQuoteBtn = document.getElementById('refresh-quote');
+
 // get quotes from api
 
 // alows us to get the get the varible available in every function
@@ -7,7 +13,21 @@ let apiQuotes = [];
 function newQuote() {
   // Pick random quoto from apiQuotes array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
-  console.log(quote);
+
+  // Check if author field is blank and repace it with quote unknown
+  if (!quote.author) {
+    authorName.textContent = 'Unknown';
+  } else {
+    authorName.textContent = quote.author;
+  }
+
+  //Check the quote lenght to determine the css style
+  if (quote.text.length > 100) {
+    quoteText.classList.add('long-quote');
+  } else {
+    quoteText.classList.remove('long-quote');
+  }
+  quoteText.textContent = quote.text;
 }
 
 //async function can run at anytime, independently, and wont stop the browser from completing the loading
@@ -24,5 +44,14 @@ async function getQuotes() {
   }
 }
 
+//Tweet Quote
+function tweetQuote() {
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorName.textContent}`;
+  window.open(twitterUrl, '_blank');
+}
+
+//Event Listeners
+newQuoteBtn.addEventListener('click', newQuote);
+twitterBtn.addEventListener('click', tweetQuote);
 //On Load
 getQuotes();
