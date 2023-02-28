@@ -3,14 +3,26 @@ const quoteText = document.getElementById('quote');
 const authorName = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('refresh-quote');
+const loader = document.getElementById('loader');
 
 // get quotes from api
 
 // alows us to get the get the varible available in every function
 let apiQuotes = [];
 
+//Show Loading
+function loading() {
+  loader.hidden = false;
+  quoteContainer.hidden = true;
+}
+// Hide loading
+function complete() {
+  loader.hidden = true;
+  quoteContainer.hidden = false;
+}
 //Show new quote
 function newQuote() {
+  loading();
   // Pick random quoto from apiQuotes array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
 
@@ -27,11 +39,14 @@ function newQuote() {
   } else {
     quoteText.classList.remove('long-quote');
   }
+  //Set Quore, Hide Loading
   quoteText.textContent = quote.text;
+  complete();
 }
 
 //async function can run at anytime, independently, and wont stop the browser from completing the loading
 async function getQuotes() {
+  loading();
   const apiUrl = 'https://jacintodesign.github.io/quotes-api/data/quotes.json';
   try {
     //this constant will not be populated until it has some data fetched from our api. If we do not do async and await it would try to set the response value before it had a chance to fetch.
